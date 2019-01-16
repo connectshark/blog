@@ -13,3 +13,8 @@ def about(request):
     Render the about page
     '''
     return render(request, 'main/about.html')
+def kpop(request):
+    '''
+    Render the about page
+    '''
+    return render(request, 'main/kpop.html')
