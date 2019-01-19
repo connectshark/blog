@@ -1,0 +1,23 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<title>部落格</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'article/css/article.css' %}">
+</head>
+<body>
+{% include 'main/menu.html' %}
+<h3>{{ article.title }}</h3>
+<p>發表時間：{{ article.pubDateTime|date:'Y-m-d H:i' }}</p>
+<div class="articleContent">{{ article.content|linebreaks }}</div>
+{% for comment in comments %}
+  <div class="commentDiv">
+    <span class="comment">{{ comment.content }}</span>
+    <br>
+    <span class="commentTime">{{ comment.pubDateTime|date:'Y-m-d H:i'}}</span>
+  </div>
+{% endfor %}
+</body>
+</html>

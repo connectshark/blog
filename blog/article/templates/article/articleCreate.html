@@ -1,0 +1,20 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<title>部落格</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'article/css/article.css' %}">
+</head>
+<body>
+{% include 'main/menu.html' %}
+<h2>新增文章</h2>
+<form method="post" action="{% url 'article:articleCreate' %}">
+  {% csrf_token %}
+  {{ articleForm.as_p }}
+  <input class="btn" type="submit" value="送出">
+  <a class="btn" href="{% url 'article:article' %}">放棄</a>
+  </form>
+</body>
+</html>
